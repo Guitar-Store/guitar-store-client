@@ -1,0 +1,30 @@
+.cardContainer {
+    justify-content: space-between;
+}
+
+@media screen and (max-width: 700px) {
+    .cardContainer {
+        justify-content: center;
+    }
+}
+
+
+.product-card {
+    width: 400px;
+    height: 200px;
+    margin: 10px;
+    border: 1px solid rgb(118, 116, 116);
+    /* border: none; */
+    border-radius: 5px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+.product-card-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+}
