@@ -6,6 +6,7 @@ import { UserProvider } from './Contexts/Auth0.context';
 import Header from './Components/header/Header';
 import DropDownButton from './Components/DropDownMenu/DropDownMenu-container';
 import ProductsList from './Components/Products/ProductList';
+import CartButton from './Components/cart/cartButton';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <UserProvider>
       <Header />
       <DropDownButton />
+      <CartButton />
       <ProductsList />
 
       {/* <Routes>

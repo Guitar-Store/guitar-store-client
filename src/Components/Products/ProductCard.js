@@ -5,10 +5,14 @@ import "./products.css";
 import StarRating from "./StarRating";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
+import { useContext } from "react";
+import { CartContext } from "../../Contexts/Cart.context";
 
 const ProductCard = ({ imageUrl, brand, model, price, reviewsNum, popularity, inStock }) => {
+  const { addItemToCart } = useContext(CartContext);
+
   const addToCart = () => {
-    console.log("Added to cart");
+    addItemToCart({ imageUrl, brand, model, price, reviewsNum, popularity, inStock });
   };
 
   return (
