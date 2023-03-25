@@ -7,14 +7,15 @@ import Profile from "../../Auth0/Profile";
 import { useAuth0 } from "@auth0/auth0-react";
 import logo from "../../Assets/Logo.png";
 import { Link } from "react-router-dom";
+import "./header.css";
 
 
 const Header = () => {
   const { isAuthenticated } = useAuth0();
   return (
-    <Container>
-      <Navbar bg="dark" variant="dark">
-        <Container>
+    <Container fluid className="p-0" >
+      <Navbar bg="dark" variant="dark" >
+        <Container fluid>
           <Navbar.Brand href="/">
             <img src={logo} width="30" height="30" alt="Our Logo" />
           </Navbar.Brand>
