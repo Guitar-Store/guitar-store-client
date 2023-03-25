@@ -1,0 +1,14 @@
+.sidebar-button {
+    background-color: #303030; 
+    border: none;
+    color: white;
+    padding: 0.5rem;
+    text-align: center;
+    text-decoration: none;
+    position:fixed;
+    bottom: 0.5rem;
+    right: 0.5rem;
+    font-size: 1rem;
+    margin: 4px 2px;
+    cursor: pointer;
+}

@@ -5,7 +5,7 @@ import LoginButton from "../../Auth0/Login";
 import LogoutButton from "../../Auth0/Logout";
 import Profile from "../../Auth0/Profile";
 import { useAuth0 } from "@auth0/auth0-react";
-import logo from "../../Assets/Logo.png";
+import logo from "../../Assets/Logo.svg";
 import { Link } from "react-router-dom";
 import "./header.css";
 
@@ -17,7 +17,7 @@ const Header = () => {
       <Navbar bg="dark" variant="dark" >
         <Container fluid>
           <Navbar.Brand href="/">
-            <img src={logo} width="30" height="30" alt="Our Logo" />
+            <img className="logo" src={logo} width="30" height="30" alt="Our Logo" />
           </Navbar.Brand>
           <Nav className="me-auto">
           <Nav.Link as={Link} to="/">Home</Nav.Link>

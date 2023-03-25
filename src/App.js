@@ -8,6 +8,8 @@ import Header from "./Components/header/Header";
 import DropDownButton from "./Components/DropDownMenu/DropDownMenu-container";
 import ProductsList from "./Components/Products/ProductList";
 import CartButton from "./Components/cart/CartButton";
+import ChatGPT from "./Components/Chat/ChatGPT";
+import Sidebar from "./Components/Chat/Sidebar";
 
 function App() {
   return (
@@ -18,6 +20,7 @@ function App() {
           <DropDownButton />
           <CartButton />
           <ProductsList />
+          <Sidebar />
 
           {/* <Routes>
             <Route path="/" element={<Home />} />
