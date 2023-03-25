@@ -1,8 +1,28 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import ProductCard from "./ProductCard";
 import "./products.css";
+import axios from "axios";
 
 const ProductsList = () => {
+  const SERVER = process.env.REACT_APP_SERVER_URL;
+  const ROUTE_PRODUCTS = process.env.REACT_APP_ROUTES_PRODUCTS;
+
+  
+    const [products, setProducts] = useState([]);
+  
+    useEffect(() => {
+      const fetchProducts = async () => {
+        try {
+          const response = await axios.get(`${SERVER}${ROUTE_PRODUCTS}/`);
+          setProducts(response.data);
+        } catch (error) {
+          console.error("Error fetching products:", error);
+        }
+      };
+  
+      fetchProducts();
+    }, [ROUTE_PRODUCTS, SERVER]);
+
   const exampleProducts = [
     {
       imageUrl:
@@ -13,6 +33,7 @@ const ProductsList = () => {
       popularity: 9,
       inStock: true,
       reviewsNum: 25,
+      id: 1,
     },
     {
       imageUrl:
@@ -23,21 +44,23 @@ const ProductsList = () => {
       popularity: 8,
       inStock: false,
       reviewsNum: 25,
+      id: 2,
     },
   ];
 
   return (
     <div className="product-list">
-      {exampleProducts.map((product, index) => (
+      {products.map((product, index) => (
         <ProductCard
           key={index}
-          imageUrl={product.imageUrl}
+          imageUrl={product.image}
           brand={product.brand}
           model={product.model}
           price={product.price}
           popularity={product.popularity}
           inStock={product.inStock}
           reviewsNum={product.reviewsNum}
+          id={product._id}
         />
       ))}
     </div>

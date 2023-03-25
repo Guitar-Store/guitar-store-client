@@ -8,11 +8,11 @@ import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 import { useContext } from "react";
 import { CartContext } from "../../Contexts/Cart.context";
 
-const ProductCard = ({ imageUrl, brand, model, price, reviewsNum, popularity, inStock }) => {
+const ProductCard = ({ imageUrl, brand, model, price, reviewsNum, popularity, inStock, id }) => {
   const { addItemToCart } = useContext(CartContext);
 
   const addToCart = () => {
-    addItemToCart({ imageUrl, brand, model, price, reviewsNum, popularity, inStock });
+    addItemToCart({ imageUrl, brand, model, price, reviewsNum, popularity, inStock, id });
   };
 
   return (
