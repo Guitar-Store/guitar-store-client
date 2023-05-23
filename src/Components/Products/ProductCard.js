@@ -1,18 +1,38 @@
-import { faAlignCenter } from "@fortawesome/free-solid-svg-icons";
-import React from "react";
-import { Card, Row, Col, Button } from "react-bootstrap";
-import "./products.css";
-import StarRating from "./StarRating";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
-import { useContext } from "react";
-import { CartContext } from "../../Contexts/Cart.context";
+import { faAlignCenter } from '@fortawesome/free-solid-svg-icons';
+import React from 'react';
+import { Card, Row, Col, Button } from 'react-bootstrap';
+import './products.css';
+import StarRating from './StarRating';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+import { useContext } from 'react';
+import { CartContext } from '../../Contexts/Cart.context';
 
-const ProductCard = ({ imageUrl, brand, model, price, reviewsNum, popularity, inStock, id }) => {
+const ProductCard = ({
+  imageUrl,
+  brand,
+  model,
+  price,
+  reviewsNum,
+  popularity,
+  inStock,
+  id,
+  offer,
+}) => {
   const { addItemToCart } = useContext(CartContext);
 
   const addToCart = () => {
-    addItemToCart({ imageUrl, brand, model, price, reviewsNum, popularity, inStock, id });
+    addItemToCart({
+      imageUrl,
+      brand,
+      model,
+      price,
+      reviewsNum,
+      popularity,
+      inStock,
+      id,
+      offer,
+    });
   };
 
   return (
@@ -27,19 +47,41 @@ const ProductCard = ({ imageUrl, brand, model, price, reviewsNum, popularity, in
               {brand} - {model}
             </Card.Title>
             <Card.Text>
-              <strong>Price:</strong> £{price}
+              {!offer && (
+                <>
+                  <strong>Price: </strong>
+                  <span>£{price}</span>
+                </>
+              )}
+              {offer && (
+                <>
+                  <strong>Price: </strong>
+                  <span className="product-card-price">£{price}</span>
+                  <span className="product-card-deal"> £{offer}</span>
+                </>
+              )}
               <br />
-              <div style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
+              <div
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                }}
+              >
                 <StarRating rating={4} />
-                <span style={{ marginLeft: "5px" }}>({reviewsNum})</span>
+                <span style={{ marginLeft: '5px' }}>({reviewsNum})</span>
               </div>
               <br />
-              <strong>In Stock:</strong> {inStock ? "Yes" : "No"}
+              <strong>In Stock:</strong> {inStock ? 'Yes' : 'No'}
             </Card.Text>
           </Card.Body>
         </Col>
       </Row>
-      <Button className="product-card-button" variant="primary" onClick={addToCart}>
+      <Button
+        className="product-card-button"
+        variant="primary"
+        onClick={addToCart}
+      >
         <FontAwesomeIcon icon={faShoppingCart} />
       </Button>
     </Card>

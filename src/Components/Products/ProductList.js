@@ -61,6 +61,7 @@ const ProductsList = () => {
           inStock={product.inStock}
           reviewsNum={product.reviewsNum}
           id={product._id}
+          offer={product.offer}
         />
       ))}
     </div>
