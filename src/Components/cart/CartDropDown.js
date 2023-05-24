@@ -1,17 +1,20 @@
-import { useContext } from "react";
-import { CartContext } from "../../Contexts/Cart.context";
-import "./cartDropDown.css";
+import { useContext } from 'react';
+import { CartContext } from '../../Contexts/Cart.context';
+import './cartDropDown.css';
 
-import { Button } from "react-bootstrap";
-import CartItem from "./CartItem";
+import { Button } from 'react-bootstrap';
+import CartItem from './CartItem';
 
 const CartDropDown = () => {
   const { cartItems } = useContext(CartContext);
-  console.log("cartItems => ", cartItems);
+  console.log('cartItems => ', cartItems);
   cartItems.forEach((cartItem) => {
-    console.log("cartItem => ", cartItem);
+    console.log('cartItem => ', cartItem);
   });
-  const totalPrice = cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
+  const totalPrice = cartItems.reduce(
+    (total, item) => total + item.price * item.quantity,
+    0
+  );
 
   return (
     <div className="cart-dropDown-container">

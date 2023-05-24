@@ -36,7 +36,7 @@ const ProductCard = ({
   };
 
   return (
-    <Card bg="light" text="black" className="mb-3 product-card">
+    <Card bg="white" text="black" className="mb-3 product-card">
       <Row noGutters className="product-card-row">
         <Col md={4} sm={4} xs={4}>
           <Card.Img src={imageUrl} alt={model} />
@@ -44,8 +44,9 @@ const ProductCard = ({
         <Col md={8} sm={8} xs={8}>
           <Card.Body className="product-card-body">
             <Card.Title>
-              {brand} - {model}
+              {brand} 
             </Card.Title>
+
             <Card.Text>
               {!offer && (
                 <>

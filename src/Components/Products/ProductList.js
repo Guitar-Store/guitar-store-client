@@ -55,7 +55,7 @@ const ProductsList = () => {
           key={index}
           imageUrl={product.image}
           brand={product.brand}
-          model={product.model}
+          model={product.modelName}
           price={product.price}
           popularity={product.popularity}
           inStock={product.inStock}
